@@ -30,7 +30,6 @@ DB_URI = os.environ.get("DATABASE_URL", "sqlite:///fileshare.db")
 
 # Username CH & Group
 CHANNEL = os.environ.get("CHANNEL", "Lunatic0de")
-GROUP = os.environ.get("GROUP", "SharingUserbot")
 
 # ID dari Channel Atau Group Untuk Wajib Subscribenya
 FORCE_SUB_CHANNEL = int(os.environ.get("FORCE_SUB_CHANNEL", "0"))
