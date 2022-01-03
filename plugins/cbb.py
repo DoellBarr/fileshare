@@ -9,7 +9,7 @@ from config import CHANNEL, GROUP, OWNER
 
 
 @Bot.on_callback_query()
-async def cb_handler(client: Bot, query: CallbackQuery):
+async def cb_handler(_, query: CallbackQuery):
     data = query.data
     if data == "about":
         await query.message.edit_text(

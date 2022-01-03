@@ -10,22 +10,22 @@ from logging.handlers import RotatingFileHandler
 TG_BOT_TOKEN = os.environ.get("TG_BOT_TOKEN", "")
 
 # API ID Anda dari my.telegram.org
-APP_ID = int(os.environ.get("APP_ID", ""))
+APP_ID = int(os.environ.get("APP_ID", "0"))
 
 # API Hash Anda dari my.telegram.org
 API_HASH = os.environ.get("API_HASH", "")
 
 # ID Channel Database
-CHANNEL_ID = int(os.environ.get("CHANNEL_ID", ""))
+CHANNEL_ID = int(os.environ.get("CHANNEL_ID", "0"))
 
 # OWNER ID
-OWNER_ID = int(os.environ.get("OWNER_ID", ""))
+OWNER_ID = int(os.environ.get("OWNER_ID", "0"))
 
 # NAMA OWNER
 OWNER = os.environ.get("OWNER", "mrismanaziz")
 
 # Database
-DB_URI = os.environ.get("DATABASE_URL", "")
+DB_URI = os.environ.get("DATABASE_URL", "sqlite:///fileshare.db")
 
 # Username CH & Group
 CHANNEL = os.environ.get("CHANNEL", "Lunatic0de")

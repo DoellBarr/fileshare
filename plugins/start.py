@@ -12,7 +12,7 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 
 from bot import Bot
 from config import ADMINS, CUSTOM_CAPTION, DISABLE_CHANNEL_BUTTON, FORCE_MSG, START_MSG
-from database.sql import add_user, full_userbase, query_msg
+from database.sql import db
 from helper_func import decode, get_messages, subscribed
 
 START_TIME = datetime.utcnow()
@@ -42,7 +42,7 @@ async def start_command(client: Client, message: Message):
     id = message.from_user.id
     user_name = "@" + message.from_user.username if message.from_user.username else None
     try:
-        await add_user(id, user_name)
+        await db.add_user(id, user_name)
     except:
         pass
     text = message.text
@@ -181,14 +181,14 @@ async def get_users(client: Bot, message: Message):
     msg = await client.send_message(
         chat_id=message.chat.id, text="<code>Processing ...</code>"
     )
-    users = await full_userbase()
+    users = await db.full_userbase()
     await msg.edit(f"{len(users)} <b>Pengguna menggunakan bot ini</b>")
 
 
 @Bot.on_message(filters.private & filters.command("broadcast") & filters.user(ADMINS))
 async def send_text(client: Bot, message: Message):
     if message.reply_to_message:
-        query = await query_msg()
+        query = await db.query_msg()
         broadcast_msg = message.reply_to_message
         total = 0
         successful = 0
