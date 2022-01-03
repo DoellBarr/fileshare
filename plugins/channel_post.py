@@ -20,7 +20,7 @@ from helper_func import encode
         ["start", "users", "broadcast", "ping", "uptime", "batch", "genlink"]
     )
 )
-async def channel_post(client: Client, message: Message):
+async def channel_post(client: Bot, message: Message):
     reply_text = await message.reply_text("<code>Tunggu Sebentar...</code>", quote=True)
     try:
         post_message = await message.copy(
@@ -63,7 +63,7 @@ async def channel_post(client: Client, message: Message):
 @Bot.on_message(
     filters.channel & filters.incoming & filters.chat(CHANNEL_ID) & ~filters.edited
 )
-async def new_post(client: Client, message: Message):
+async def new_post(client: Bot, message: Message):
 
     if DISABLE_CHANNEL_BUTTON:
         return

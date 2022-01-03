@@ -38,7 +38,7 @@ async def _human_time_duration(seconds):
 
 
 @Bot.on_message(filters.command("start") & filters.private & subscribed)
-async def start_command(client: Client, message: Message):
+async def start_command(client: Bot, message: Message):
     id = message.from_user.id
     user_name = "@" + message.from_user.username if message.from_user.username else None
     try:
@@ -140,7 +140,7 @@ async def start_command(client: Client, message: Message):
 
 
 @Bot.on_message(filters.command("start") & filters.private)
-async def not_joined(client: Client, message: Message):
+async def not_joined(client: Bot, message: Message):
     buttons = [
         [
             InlineKeyboardButton("𝗖𝗛𝗔𝗡𝗡𝗘𝗟", url=client.invitelink),
