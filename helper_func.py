@@ -26,7 +26,7 @@ async def is_subscribed(filter, client, update):
     except UserNotParticipant:
         return False
 
-    return bool(member.status in ["creator", "administrator", "member"])
+    return member.status in ["creator", "administrator", "member"]
 
 
 async def encode(string):
