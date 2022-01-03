@@ -16,13 +16,14 @@ from config import (
     OWNER,
     TG_BOT_TOKEN,
     TG_BOT_WORKERS,
+    SESSION
 )
 
 
 class Bot(Client):
     def __init__(self):
         super().__init__(
-            ":memory:",
+            SESSION,
             api_hash=API_HASH,
             api_id=APP_ID,
             plugins={"root": "plugins"},
@@ -37,6 +38,7 @@ class Bot(Client):
     async def start(self):
         await super().start()
         usr_bot_me = await self.get_me()
+        print(usr_bot_me)
         if FORCE_SUB_CHANNEL:
             try:
                 link = await self.export_chat_invite_link(FORCE_SUB_CHANNEL)
