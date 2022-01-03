@@ -29,6 +29,9 @@ class Bot(Client):
             workers=TG_BOT_WORKERS,
             bot_token=TG_BOT_TOKEN,
         )
+        self.db_channel = None
+        self.username = None
+        self.invitelink = None
         self.LOGGER = LOGGER
 
     async def start(self):
