@@ -22,7 +22,7 @@ from config import (
 class Bot(Client):
     def __init__(self):
         super().__init__(
-            "Bot",
+            ":memory:",
             api_hash=API_HASH,
             api_id=APP_ID,
             plugins={"root": "plugins"},
@@ -37,14 +37,13 @@ class Bot(Client):
     async def start(self):
         await super().start()
         usr_bot_me = await self.get_me()
-
         if FORCE_SUB_CHANNEL:
             try:
                 link = await self.export_chat_invite_link(FORCE_SUB_CHANNEL)
                 self.invitelink = link
                 print(self.invitelink)
             except Exception as a:
-                self.LOGGER(__name__).warning(a)
+                print(a)
                 self.LOGGER(__name__).warning(
                     "Bot tidak dapat Mengambil link Undangan dari FORCE_SUB_CHANNEL!"
                 )
@@ -58,7 +57,6 @@ class Bot(Client):
         try:
             db_channel = await self.get_chat(CHANNEL_ID)
             self.db_channel = db_channel
-            print(self.db_channel)
             test = await self.send_message(chat_id=db_channel.id, text="Test Message")
             await test.delete()
         except Exception as e:
