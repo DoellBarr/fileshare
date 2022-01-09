@@ -17,7 +17,7 @@ from config import (
     OWNER,
     TG_BOT_TOKEN,
     TG_BOT_WORKERS,
-    SESSION
+    SESSION, FORCE_SUB_CHANNEL_2, FORCE_SUB_CHANNEL_3
 )
 
 
@@ -36,6 +36,8 @@ class Bot(Client):
         self.username = None
         self.invitelink = None
         self.invitelink1 = None
+        self.invitelink2 = None
+        self.invitelink3 = None
         self.LOGGER = LOGGER
 
     async def start(self):
@@ -46,7 +48,10 @@ class Bot(Client):
             try:
                 link = await self.export_chat_invite_link(FORCE_SUB_CHANNEL)
                 self.invitelink = link
-                print(self.invitelink)
+                link = await self.export_chat_invite_link(FORCE_SUB_CHANNEL_2)
+                self.invitelink2 = link
+                link = await self.export_chat_invite_link(FORCE_SUB_CHANNEL_3)
+                self.invitelink3 = link
             except Exception as a:
                 print(a)
                 self.LOGGER(__name__).warning(
