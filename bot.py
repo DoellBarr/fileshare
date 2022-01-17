@@ -17,7 +17,7 @@ from config import (
     OWNER,
     TG_BOT_TOKEN,
     TG_BOT_WORKERS,
-    SESSION, FORCE_SUB_CHANNEL_2, FORCE_SUB_CHANNEL_3
+    SESSION, FORCE_SUB_CHANNEL_2, FORCE_SUB_CHANNEL_3, FORCE_SUB_CHANNEL_4, FORCE_SUB_CHANNEL_5
 )
 
 
@@ -38,6 +38,8 @@ class Bot(Client):
         self.invitelink1 = None
         self.invitelink2 = None
         self.invitelink3 = None
+        self.invitelink4 = None
+        self.invitelink5 = None
         self.LOGGER = LOGGER
 
     async def start(self):
@@ -52,13 +54,17 @@ class Bot(Client):
                 self.invitelink2 = link
                 link = await self.export_chat_invite_link(FORCE_SUB_CHANNEL_3)
                 self.invitelink3 = link
+                link = await self.export_chat_invite_link(FORCE_SUB_CHANNEL_4)
+                self.invitelink4 = link
+                link = await self.export_chat_invite_link(FORCE_SUB_CHANNEL_5)
+                self.invitelink5 = link
             except Exception as a:
                 print(a)
                 self.LOGGER(__name__).warning(
-                    "Bot tidak dapat Mengambil link Undangan dari FORCE_SUB_CHANNEL!"
+                    f"Bot tidak dapat Mengambil link Undangan dari salah satu link forcesubs"
                 )
                 self.LOGGER(__name__).warning(
-                    f"Silakan periksa kembali var FORCE_SUB_CHANNEL dan Pastikan Bot anda Admin di Channel dengan izin link invite Pengguna melalui link undangan, Subs Channel Saat Ini: {FORCE_SUB_CHANNEL}"
+                    f"Silakan periksa kembali var FORCE_SUB_CHANNEL dan Pastikan Bot anda Admin di Channel dengan izin link invite Pengguna melalui link undangan"
                 )
                 self.LOGGER(__name__).info(
                     "\nBot Berhenti. Gabung Group https://t.me/SharingUserbot untuk Bantuan"

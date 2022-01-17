@@ -115,9 +115,11 @@ async def start_command(client: Bot, message: Message):
         buttons = [
             [InlineKeyboardButton("• ᴛᴇɴᴛᴀɴɢ sᴀʏᴀ •", callback_data="about")],
             [
-                InlineKeyboardButton("𝗖𝗛𝗔𝗡𝗡𝗘𝗟", url=client.invitelink),
+                InlineKeyboardButton("𝗖𝗛𝗔𝗡𝗡𝗘𝗟1", url=client.invitelink),
                 InlineKeyboardButton("𝗖𝗛𝗔𝗡𝗡𝗘𝗟2", url=client.invitelink2),
                 InlineKeyboardButton("𝗖𝗛𝗔𝗡𝗡𝗘𝗟3", url=client.invitelink3),
+                InlineKeyboardButton("𝗖𝗛𝗔𝗡𝗡𝗘𝗟4", url=client.invitelink4),
+                InlineKeyboardButton("𝗖𝗛𝗔𝗡𝗡𝗘𝗟5", url=client.invitelink5),
             ],
             [
                 InlineKeyboardButton("𝗚𝗥𝗢𝗨𝗣", url=client.invitelink1)
@@ -149,6 +151,10 @@ async def not_joined(client: Bot, message: Message):
             InlineKeyboardButton("𝗖𝗛𝗔𝗡𝗡𝗘𝗟", url=client.invitelink),
             InlineKeyboardButton("𝗖𝗛𝗔𝗡𝗡𝗘𝗟2", url=client.invitelink2),
             InlineKeyboardButton("𝗖𝗛𝗔𝗡𝗡𝗘𝗟3", url=client.invitelink3),
+        ],
+        [
+            InlineKeyboardButton("𝗖𝗛𝗔𝗡𝗡𝗘𝗟4", url=client.invitelink4),
+            InlineKeyboardButton("𝗖𝗛𝗔𝗡𝗡𝗘𝗟5", url=client.invitelink5),
         ],
         [
             InlineKeyboardButton("𝗚𝗥𝗢𝗨𝗣", url=client.invitelink1)
